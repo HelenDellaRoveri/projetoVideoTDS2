@@ -1,6 +1,5 @@
 import { sql } from './sql.js';
 
-
 async function criarTabela() {
   try {
     await sql`
@@ -18,6 +17,5 @@ async function criarTabela() {
     process.exit();
   }
 }
-
 
 criarTabela();

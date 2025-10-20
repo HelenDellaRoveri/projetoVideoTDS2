@@ -1,31 +1,31 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f1f3f6;
     color: #333;
     padding: 20px;
 }
 
-h1, h2{
+h1, h2 {
     color: #1a73e8;
     margin-bottom: 20px;
 }
 
-form{
+form {
     background: #fff;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0,0, 0.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     margin-bottom: 40px;
     max-width: 500px;
 }
 
-input, textarea{
+input, textarea {
     width: 100%;
     padding: 10px 15px;
     margin-bottom: 15px;
@@ -34,7 +34,7 @@ input, textarea{
     font-size: 16px;
 }
 
-button{
+button {
     background-color: #1a73e8;
     color: #fff;
     border: none;
@@ -46,40 +46,40 @@ button{
     margin-right: 10px;
 }
 
-button:hover{
+button:hover {
     background-color: #125cc0;
 }
 
-hr{
+hr {
     margin: 40px 0;
     border: none;
     border-top: 1px solid #ccc;
 }
 
-#videos-container{
+#videos-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
 }
 
-.video-item{
+.video-item {
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     padding: 20px;
     transition: transform 0.2s ease;
 }
 
-.video-item:hover{
+.video-item:hover {
     transform: scale(1.02);
 }
 
-.video-item h3{
+.video-item h3 {
     color: #1a73e8;
     margin-bottom: 10px;
 }
 
-.video-item p{
+.video-item p {
     margin-bottom: 8px;
     color: #555;
 }

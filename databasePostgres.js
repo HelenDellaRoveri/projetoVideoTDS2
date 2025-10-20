@@ -47,8 +47,3 @@ export class DatabasePostegres {
     await sql`DELETE FROM videos WHERE id = ${id}`;
   }
 }
-
-
-
-
-

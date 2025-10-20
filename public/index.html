@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
   <h1>Cadastro de Vídeo</h1>
   <hr />
 
@@ -33,7 +34,9 @@
 
       container.innerHTML = '';
 
-      await videos.forEach(video => {
+      if (!Array.isArray(videos)) return; // garante que seja array
+
+      videos.forEach(video => {
         const card = document.createElement('div');
         card.className = 'video-item';
         card.innerHTML = `
@@ -41,16 +44,14 @@
           <p>${video.description}</p>
           <p>Duração: ${video.duration} min</p>
           <button onclick='deletarVideo("${video.id}")'>Excluir</button>
-         <button onclick="editarVideo('${video.id}', '${video.title}', '${video.description}', ${video.duration})">Editar</button>
+          <button onclick="editarVideo('${video.id}', '${video.title}', '${video.description}', ${video.duration})">Editar</button>
         `;
         container.appendChild(card);
       });
     }
 
     async function deletarVideo(id) {
-      await fetch(`${apiUrl}/${id}`, {
-        method: 'DELETE'
-      });
+      await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
       carregarVideos();
     }
 
@@ -61,17 +62,15 @@
       const duration = parseInt(document.getElementById('duration').value);
 
       await fetch(apiUrl, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        method: 'POST', // ✅ criação agora usa POST
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, description, duration })
       });
 
       form.reset();
       carregarVideos();
     });
-   
+
     async function editarVideo(id, title, description, duration) {
       const novoTitulo = prompt("Novo título:", title);
       const novaDescricao = prompt("Nova descrição:", description);
@@ -81,9 +80,7 @@
 
       await fetch(`${apiUrl}/${id}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: novoTitulo,
           description: novaDescricao,
